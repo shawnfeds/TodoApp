@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "ToDoServer";
+
+package greet;
+
+import "google/protobuf/Empty.proto";
+// The greeting service definition.
+service Greeter {
+  rpc CreateTodo(Todo) returns (Todo);
+  rpc ReadTodoByID(TodoId) returns (Todo);
+  rpc UpdateTodo(Todo) returns (Todo);
+  rpc DeleteTodo(TodoId) returns (google.protobuf.Empty);
+}
+
+message Todo {
+  int32 id = 1;
+  string description = 2;
+}
+
+message TodoId {
+  int32 id = 1;
+}
